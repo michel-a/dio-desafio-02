@@ -1,4 +1,4 @@
-package banco;
+package banco.modelos;
 
 public class Cliente {
 
@@ -11,6 +11,5 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
 	
 }

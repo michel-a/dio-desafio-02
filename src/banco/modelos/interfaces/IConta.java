@@ -1,4 +1,6 @@
-package banco;
+package banco.modelos.interfaces;
+
+import banco.modelos.Conta;
 
 public interface IConta {
 

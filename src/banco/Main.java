@@ -1,19 +1,47 @@
 package banco;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import banco.modelos.Banco;
+import banco.modelos.Cliente;
+import banco.modelos.Conta;
+import banco.modelos.ContaCorrente;
+import banco.modelos.ContaPoupanca;
+
 public class Main {
 
 	public static void main(String[] args) {
-		Cliente cliente = new Cliente();
-		cliente.setNome("Michel");
+		Cliente cliente01 = new Cliente();
+		cliente01.setNome("Michel");
 		
-		Conta cc = new ContaCorrente(cliente);
-		Conta poupanca = new ContaPoupanca(cliente);
+		Cliente cliente02 = new Cliente();
+		cliente02.setNome("Luana");
+
+		Cliente cliente03 = new Cliente();
+		cliente03.setNome("Bianca");
+		
+		Conta cc = new ContaCorrente(cliente01);
+		Conta poupanca01 = new ContaPoupanca(cliente02);
+		Conta poupanca02 = new ContaPoupanca(cliente03);
 		
 		cc.depositar(100.0);
-		cc.transferir(100, poupanca);
+		cc.transferir(22, poupanca01);
+		cc.transferir(8, poupanca02);
 
 		cc.imprimirExtrato();
-		poupanca.imprimirExtrato();
+		poupanca01.imprimirExtrato();
+		poupanca02.imprimirExtrato();
+		
+		Banco banco = new Banco();
+		List<Conta> listaDeContas = new ArrayList<>();
+		listaDeContas.add(cc);
+		listaDeContas.add(poupanca01);
+		listaDeContas.add(poupanca02);
+		
+		banco.setContas(listaDeContas);
+		banco.imprimirContas(listaDeContas);
+		banco.imprimirClientes(listaDeContas);
 	}
 
 }
